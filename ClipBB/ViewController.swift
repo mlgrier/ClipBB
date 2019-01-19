@@ -75,5 +75,23 @@ class ViewController: UIViewController {
     @IBAction func colorPick(_ sender: Any) {
     }
     
+    func textSwap(sender: UIButton) {
+        switch (sender as AnyObject).tag {
+        case 0:
+            labelNumber1.text = event2
+        case 1:
+            labelNumber2.text = event1
+        case 2:
+            labelNumber2.text = event3
+        case 3:
+            labelNumber2.text = event3
+        case 4:
+            labelNumber3.text = event4
+        default:
+            print("error")
+        }
+    }
+
+    
 }
 
