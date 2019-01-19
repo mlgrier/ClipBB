@@ -24,6 +24,8 @@ class ViewController: UIViewController {
     var path = UIBezierPath()
     var startPoint = CGPoint()
     var touchPoint = CGPoint()
+    
+    var chosenColor = UIColor.green
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,14 +56,15 @@ class ViewController: UIViewController {
         path.addLine(to: touchPoint)
         startPoint = touchPoint
         
-        draw()
+        draw(drawColor: chosenColor)
     }
     
-    func draw() {
+    func draw(drawColor: UIColor) {
         let strokeLayer = CAShapeLayer()
         strokeLayer.fillColor = nil
         strokeLayer.lineWidth = 5
-        strokeLayer.strokeColor = UIColor.black.cgColor
+        strokeLayer.strokeColor = drawColor.cgColor
+        //strokeLayer.strokeColor = UIColor.black.cgColor
         strokeLayer.path = path.cgPath
         mainImage.layer.addSublayer(strokeLayer)
         mainImage.setNeedsDisplay()
@@ -72,21 +75,23 @@ class ViewController: UIViewController {
         mainImage.layer.sublayers = nil
         mainImage.setNeedsDisplay()
     }
-    @IBAction func colorPick(_ sender: Any) {
+    @IBAction func colorPick(_ sender: UIButton) {
+        let buttonPushed = sender
+        textSwap(sender: buttonPushed)
     }
     
     func textSwap(sender: UIButton) {
         switch (sender as AnyObject).tag {
         case 0:
-            labelNumber1.text = event2
+            chosenColor = UIColor.purple
         case 1:
-            labelNumber2.text = event1
+            chosenColor = UIColor.blue
         case 2:
-            labelNumber2.text = event3
+            chosenColor = UIColor.black
         case 3:
-            labelNumber2.text = event3
+            chosenColor = UIColor.green
         case 4:
-            labelNumber3.text = event4
+            chosenColor = UIColor.red
         default:
             print("error")
         }
