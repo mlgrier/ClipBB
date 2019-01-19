@@ -13,6 +13,14 @@ class ViewController: UIViewController {
     @IBOutlet weak var mainImage: UIImageView!
     @IBOutlet weak var clearButton: UIButton!
     
+    
+    @IBOutlet weak var colorButton0: UIButton!
+    @IBOutlet weak var colorButton1: UIButton!
+    @IBOutlet weak var colorButton2: UIButton!
+    @IBOutlet weak var colorButton3: UIButton!
+    @IBOutlet weak var colorButton4: UIButton!
+    
+    
     var path = UIBezierPath()
     var startPoint = CGPoint()
     var touchPoint = CGPoint()
@@ -63,6 +71,8 @@ class ViewController: UIViewController {
         path.removeAllPoints()
         mainImage.layer.sublayers = nil
         mainImage.setNeedsDisplay()
+    }
+    @IBAction func colorPick(_ sender: Any) {
     }
     
 }
